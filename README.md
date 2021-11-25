@@ -11,7 +11,7 @@ This is the Codam approach to the classic philosophers multithreading problem. T
 
 ## Project description
 
-The problem is about philosophers who are sitting at a round table with a fork to their left and right. They are either eating, sleeping or thinking. However, they can only eat whilst holding two forks. After a certain amount of time has passed without eating, philosophers die from starvation. All philosophers represent a thread in philo_one or a fork in philo_two, and forks represent a mutex or semaphore.
+The problem is about philosophers who are sitting at a round table with a fork to their left and right. They are either eating, sleeping or thinking. However, they can only eat whilst holding two forks and no two philosophers can hold the same fork. After a certain amount of time has passed without eating, philosophers die from starvation. All philosophers represent a thread in philo_one or a fork in philo_two, and forks represent a mutex or semaphore.
 
 ## Usage
 
