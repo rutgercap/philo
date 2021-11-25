@@ -24,7 +24,7 @@ The problem is about philosophers who are sitting at a round table with a fork t
    ```console
    make run
    ```
-3b. Or run it as ./philo time_to_die_in_ms time_to_eat_in_ms time_to_sleep_in_ms [philosophers_n]
+2b. Or run it as ./philo time_to_die_in_ms time_to_eat_in_ms time_to_sleep_in_ms [philosophers_n]
 
    ```console
    ./philo 10 400 200 200
