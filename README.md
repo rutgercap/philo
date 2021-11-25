@@ -1,6 +1,6 @@
 # Philosophers
 
-This is the Codam approach to the classic philosophers multithreading problem. This project focuses on the basics of threading a process and mutexes. Philo_two solves the same problem, except with forking instead of multithreading. 
+This is the Codam approach to the classic philosophers multithreading problem. This project focuses on the basics of threading a process and mutexes. Philo_two solves the same problem, except with forking and semaphores. 
 
 ## Learning goals
 
