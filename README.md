@@ -19,12 +19,12 @@ The problem is about philosophers who are sitting at a round table with a fork t
    ```console
    git clone https://github.com/rutgercap/philo.git
    ```
-2. Run with 
+2a. Run with 
 
    ```console
    make run
    ```
-3. Or run it as ./philo time_to_die_in_ms time_to_eat_in_ms time_to_sleep_in_ms [philosophers_n]
+3b. Or run it as ./philo time_to_die_in_ms time_to_eat_in_ms time_to_sleep_in_ms [philosophers_n]
 
    ```console
    ./philo 10 400 200 200
