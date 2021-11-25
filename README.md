@@ -1,6 +1,6 @@
 # Philosophers
 
-This project focuses on the basics of threading a process and mutexes. Philo_two focuses on forking and semaphores.
+This is the Codam approach to the classic philosophers multithreading problem. This project focuses on the basics of threading a process and mutexes. Philo_two solves the same problem, except with forking instead of multithreading. 
 
 ## Learning goals
 
@@ -11,7 +11,7 @@ This project focuses on the basics of threading a process and mutexes. Philo_two
 
 ## Project description
 
-This is the Codam approach to the classic philosophers multithreading problem. The problem is about philosophers who are sitting at a round table with a fork to the left and right. They are either eating, sleeping or thinking. However, they can only eat whilst holding two forks. After a certain amount of time has passed, philosophers die from starvation. All philosophers represent a thread in the philo_one or a fork in philo_two, and forks a mutex or semaphore, respectively.
+The problem is about philosophers who are sitting at a round table with a fork to their left and right. They are either eating, sleeping or thinking. However, they can only eat whilst holding two forks. After a certain amount of time has passed without eating, philosophers die from starvation. All philosophers represent a thread in philo_one or a fork in philo_two, and forks represent a mutex or semaphore.
 
 ## Usage
 
@@ -24,3 +24,12 @@ This is the Codam approach to the classic philosophers multithreading problem. T
    ```console
    make run
    ```
+3. Or run it as ./philo time_to_die_in_ms time_to_eat_in_ms time_to_sleep_in_ms [philosophers_n]
+
+   ```console
+   ./philo 10 400 200 200
+   ```
+   
+### Special rules
+
+The program doesn't work with too many philosophers.
