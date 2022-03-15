@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:11:28 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/17 14:47:51 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:05:06 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	init(t_rules **rules_ref, t_philo **philo_ref)
 {
 	t_rules	*rules;
 	t_philo	*philo;
-	
+
 	philo = malloc(sizeof(t_philo));
 	if (!philo)
 		exit_error("Malloc failure");

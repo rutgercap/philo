@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_action.c                                     :+:    :+:            */
+/*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/04 17:13:35 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2022/03/15 12:45:22 by rcappend      ########   odam.nl         */
+/*   Created: 2020/10/29 16:24:34 by rcappend      #+#    #+#                 */
+/*   Updated: 2022/03/15 12:42:37 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "utils.h"
 
-void	print_action(t_philo *philo, char *msg)
+void	ft_putstr_fd(const char *s, int fd)
 {
-	int64_t	time;
-
-	pthread_mutex_lock(&philo->rules->write_mut);
-	time = time_since_start(philo->rules);
-	ft_putnbr_fd(time, 1);
-	ft_putstr_fd(": ", 1);
-	ft_putnbr_fd(philo->id, 1);
-	ft_putchar_fd(' ', 1);
-	ft_putendl_fd(msg, 1);
-	pthread_mutex_unlock(&philo->rules->write_mut);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

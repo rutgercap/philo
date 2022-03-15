@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:11:28 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/19 09:53:08 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 10:04:53 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int	main(int argc, char **argv)
 		return (exit_error("Error setting up forks", philos_n, forks, philos));
 	if (setup_philos(&philos, philos_n, forks, &rules))
 		return (exit_error("Error setting up forks", philos_n, forks, philos));
-	food_time(philos, philos_n, &rules);
+	monitor(philos, philos_n, &rules);
 	return (exit_correct(philos_n, forks, philos));
 }

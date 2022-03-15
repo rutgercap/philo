@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 12:03:35 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/25 12:26:46 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:05:18 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	read_arguments(t_rules *rules, char **argv)
 	rules->die_time = ft_atoi(argv[2]);
 	rules->eat_time = ft_atoi(argv[3]);
 	rules->sleep_time = ft_atoi(argv[4]);
-	if (rules->philos_n  < 1 || rules->die_time < 1 || \
+	if (rules->philos_n < 1 || rules->die_time < 1 || \
 		rules->eat_time < 1 || rules->sleep_time < 1)
 		exit_error("One or more arguments are invalid");
 	if (argv[5])

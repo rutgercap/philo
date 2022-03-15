@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/25 15:08:19 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/17 12:23:53 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:04:15 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static sem_t	*setup_sem(const char *name, unsigned int value)
 {
 	sem_t	*sem;
-	
+
 	sem_unlink(name);
 	sem = sem_open(name, O_CREAT | O_EXCL, 0777, value);
-	if (sem == SEM_FAILED) 
+	if (sem == SEM_FAILED)
 		exit_error("Error creating semaphore");
 	return (sem);
 }

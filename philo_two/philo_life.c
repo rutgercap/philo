@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/19 10:38:06 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:04:21 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	eat_sleep_think_repeat(t_philo *philo)
 void	philo_life(t_philo *philo)
 {
 	pthread_t	monitor_tid;
-	
+
 	if (pthread_create(&monitor_tid, NULL, &monitor, (void *)philo))
 		exit_error("Thread failure");
 	pthread_detach(monitor_tid);

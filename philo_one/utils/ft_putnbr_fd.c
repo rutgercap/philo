@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print_action.c                                     :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/11/04 17:13:35 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2022/03/15 12:45:22 by rcappend      ########   odam.nl         */
+/*   Created: 2020/10/29 16:46:28 by rcappend      #+#    #+#                 */
+/*   Updated: 2022/03/15 12:32:07 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "utils.h"
 
-void	print_action(t_philo *philo, char *msg)
+void	ft_putnbr_fd(int64_t n, int fd)
 {
-	int64_t	time;
-
-	pthread_mutex_lock(&philo->rules->write_mut);
-	time = time_since_start(philo->rules);
-	ft_putnbr_fd(time, 1);
-	ft_putstr_fd(": ", 1);
-	ft_putnbr_fd(philo->id, 1);
-	ft_putchar_fd(' ', 1);
-	ft_putendl_fd(msg, 1);
-	pthread_mutex_unlock(&philo->rules->write_mut);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n <= 9)
+		ft_putchar_fd((char)(n) + '0', fd);
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((char)(n % 10) + '0', fd);
+	}
 }

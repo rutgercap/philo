@@ -2,9 +2,9 @@ NAME		=	philo
 
 SRCS		=	main.c \
 				exit.c \
-				lexing.c \
+				init.c \
 				forks.c \
-				philos.c \
+				setup_philos.c \
 				philo_life.c \
 				monitor.c \
 				time.c \
@@ -14,14 +14,19 @@ SRCS		=	main.c \
 				utils/ft_isdigit.c \
 				utils/ft_calloc.c \
 				utils/ft_bzero.c \
-				utils/ft_strcheck.c 
+				utils/ft_strcheck.c \
+				utils/ft_putendl_fd.c \
+				utils/ft_putnbr_fd.c \
+				utils/ft_putstr_fd.c \
+				utils/ft_putchar_fd.c \
+				utils/ft_strlen.c
 OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
 CFLAGS		=	-Wall -Wextra -Werror
 
-ARGS		=	25 1200 400 400
+ARGS		=	2 400 200 200 5
 
 all:		$(NAME)
 $(NAME):	$(OBJS)

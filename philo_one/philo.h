@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/19 10:38:06 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:05:57 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_rules
 	int64_t			eat_time;
 	int64_t			sleep_time;
 	int64_t			start_time;
+	int				full_philos;
 	int				eat_n;
 }	t_rules;
 
@@ -56,6 +57,7 @@ typedef struct s_philo
 	t_rules			*rules;
 	t_fork			*forks[2];
 	int				times_eaten;
+	bool			checked;
 	int				id;
 }	t_philo;
 
@@ -68,7 +70,7 @@ int		setup_philos(t_philo **philos, const int philos_n, \
 
 void	*philo_life(void *arg);
 
-int		food_time(t_philo *philos, int philos_n, t_rules *rules);
+int		monitor(t_philo *philos, int philos_n, t_rules *rules);
 
 // utils
 
@@ -84,7 +86,7 @@ int64_t	get_time(void);
 
 int64_t	time_since_start(t_rules *rules);
 
-void    smart_sleep(int64_t ms);
+void	smart_sleep(int64_t ms);
 
 void	print_action(t_philo *philo, char *msg);
 

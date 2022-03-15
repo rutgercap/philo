@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/25 12:24:26 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:04:34 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ int64_t	time_since_start(t_rules *rules);
 
 int64_t	print_action(t_philo *philo, char *msg);
 
-void    smart_sleep(int64_t ms);
+void	smart_sleep(int64_t ms);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   lexing.c                                           :+:    :+:            */
+/*   init.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 12:03:35 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/19 10:35:45 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 13:37:48 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,6 @@ static int	read_arguments(t_rules *rules, int *philos_n, char **argv)
 	return (EXIT_SUCCESS);
 }
 
-static int	setup_write_mut(t_rules *rules)
-{
-	if (pthread_mutex_init(&rules->write_mut, NULL))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
-
 int	arg_lexing(t_rules *rules, int *philos_n, int argc, char **argv)
 {
 	if (check_argc(argc))
@@ -65,7 +58,7 @@ int	arg_lexing(t_rules *rules, int *philos_n, int argc, char **argv)
 		return (EXIT_FAILURE);
 	if (read_arguments(rules, philos_n, argv))
 		return (EXIT_FAILURE);
-	if (setup_write_mut(rules))
+	if (pthread_mutex_init(&rules->write_mut, NULL))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

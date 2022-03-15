@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:17:55 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/25 12:28:21 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 13:57:34 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ static int	check_philo(t_philo *philo, t_rules *rules)
 
 	ret = 0;
 	pthread_mutex_lock(&philo->data_mutex);
-	if (philo->times_eaten == rules->eat_n)
+	if (!philo->checked && philo->times_eaten == rules->eat_n)
+	{
+		philo->checked = true;
 		ret = FULL;
+	}
 	else if (time_since_start(rules) - philo->last_eaten > rules->die_time)
 		ret = DEAD;
 	pthread_mutex_unlock(&philo->data_mutex);
@@ -31,14 +34,16 @@ static int	kill_philo(const int id, t_rules *rules)
 	int64_t	last_time;
 
 	last_time = time_since_start(rules);
-	rules->start_time = STOP;
-	printf("%6lld: ", last_time);
-	printf("%d ", id);
-	printf("died\n");
+	pthread_mutex_lock(&rules->write_mut);
+	ft_putnbr_fd(last_time, 1);
+	ft_putstr_fd(": ", 1);
+	ft_putnbr_fd(id, 1);
+	ft_putchar_fd(' ', 1);
+	ft_putendl_fd("died", 1);
 	return (EXIT_SUCCESS);
 }
 
-int	food_time(t_philo *philos, int philos_n, t_rules *rules)
+int	monitor(t_philo *philos, int philos_n, t_rules *rules)
 {
 	int		satisfied_philos;
 	int		ret;
@@ -47,17 +52,15 @@ int	food_time(t_philo *philos, int philos_n, t_rules *rules)
 	satisfied_philos = 0;
 	ret = 0;
 	i = 0;
-	rules->start_time = get_time();
 	while (TRUE)
 	{
 		ret = check_philo(&philos[i % philos_n], rules);
 		if (ret == DEAD)
 			return (kill_philo(i % philos_n + 1, rules));
 		else if (ret == FULL)
-			satisfied_philos += 1;
+			satisfied_philos++;
 		if (satisfied_philos == philos_n)
 			break ;
-		smart_sleep(5);
 		i++;
 	}
 	return (EXIT_SUCCESS);

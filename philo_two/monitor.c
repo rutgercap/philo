@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/16 14:21:31 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/25 12:42:05 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 14:04:59 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	*monitor(void *arg)
 	philo = (t_philo *)arg;
 	while (TRUE)
 	{
-		if (time_since_start(philo->rules) - philo->last_eaten > philo->rules->die_time)
+		if (time_since_start(philo->rules) - philo->last_eaten > \
+			philo->rules->die_time)
 		{
 			death_time = time_since_start(philo->rules);
 			philo->rules->start_time = STOP;

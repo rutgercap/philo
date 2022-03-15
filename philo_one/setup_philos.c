@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   philos.c                                           :+:    :+:            */
+/*   setup_philos.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/25 15:08:19 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/11/19 09:52:46 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/15 13:48:11 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ int	start_philos(t_philo *philos, int philos_n)
 	int			i;
 
 	i = 0;
+	philos->rules->start_time = get_time();
 	while (i < philos_n)
 	{
 		if (pthread_create(&t_id, NULL, &philo_life, (void *)&philos[i]))
 			return (EXIT_FAILURE);
 		pthread_detach(t_id);
+		usleep(10);
 		i++;
 	}
 	return (EXIT_SUCCESS);
