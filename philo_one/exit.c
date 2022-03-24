@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 08:41:54 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:28:13 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 16:57:47 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,22 @@ int	exit_error(char *msg, int philos_n, t_fork *forks, t_philo *philos)
 	return (EXIT_FAILURE);
 }
 
+void	join_threads(t_philo *philos, int philos_n)
+{
+	int	i;
+
+	i = 0;
+	while (i < philos_n)
+	{
+		pthread_join(philos->tid, NULL); // does not work yet
+		perror("");
+		i++;
+	}
+}
+
 int	exit_correct(int forks_n, t_fork *forks, t_philo *philos)
 {
+	join_threads(philos, forks_n);
 	destroy_forks(forks_n, forks);
 	free(philos);
 	free(forks);

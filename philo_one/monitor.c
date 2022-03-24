@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:17:55 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 15:53:08 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 16:43:19 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int	kill_philo(const int id, t_rules *rules)
 	int64_t	last_time;
 
 	pthread_mutex_lock(&rules->write_mut);
+	rules->dead = true;
 	last_time = time_since_start(rules);
 	ft_putnbr_fd(last_time, 1);
 	ft_putstr_fd(": ", 1);

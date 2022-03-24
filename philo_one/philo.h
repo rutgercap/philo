@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:09:47 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 16:55:34 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ enum e_forks
 typedef struct s_rules
 {
 	pthread_mutex_t	write_mut;
+	bool			dead;
 	uint64_t		die_time;
 	uint64_t		eat_time;
 	uint64_t		sleep_time;
@@ -53,6 +54,7 @@ typedef struct s_rules
 typedef struct s_philo
 {
 	pthread_mutex_t	data_mutex;
+	pthread_t		tid;
 	uint64_t		last_eaten;
 	t_rules			*rules;
 	t_fork			*forks[2];
@@ -84,7 +86,7 @@ int		exit_correct(int forks_n, t_fork *forks, t_philo *philos);
 
 void	smart_sleep(uint64_t ms);
 
-void	print_action(t_philo *philo, char *msg);
+int		print_action(t_philo *philo, char *msg);
 
 uint64_t	get_time(void);
 
