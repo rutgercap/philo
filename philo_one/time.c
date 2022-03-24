@@ -6,32 +6,32 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:04:59 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/15 14:06:23 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 16:11:29 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int64_t	get_time(void)
+uint64_t	get_time(void)
 {
 	struct timeval	time_values;
-	int64_t			time;
+	uint64_t			time;
 
 	gettimeofday(&time_values, NULL);
 	time = ((time_values.tv_sec * 1000) + (time_values.tv_usec / 1000));
 	return (time);
 }
 
-int64_t	time_since_start(t_rules *rules)
+uint64_t	time_since_start(t_rules *rules)
 {
 	return (get_time() - rules->start_time);
 }
 
-void	smart_sleep(int64_t ms)
+void	smart_sleep(uint64_t ms)
 {
-	int64_t	start;
+	uint64_t	start;
 
 	start = get_time();
 	while ((get_time() - start) < ms)
-		usleep(5);
+		usleep(100);
 }

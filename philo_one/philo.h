@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/15 14:05:57 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 16:09:47 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ enum e_forks
 typedef struct s_rules
 {
 	pthread_mutex_t	write_mut;
-	int64_t			die_time;
-	int64_t			eat_time;
-	int64_t			sleep_time;
-	int64_t			start_time;
+	uint64_t		die_time;
+	uint64_t		eat_time;
+	uint64_t		sleep_time;
+	uint64_t		start_time;
 	int				full_philos;
 	int				eat_n;
 }	t_rules;
@@ -53,7 +53,7 @@ typedef struct s_rules
 typedef struct s_philo
 {
 	pthread_mutex_t	data_mutex;
-	int64_t			last_eaten;
+	uint64_t		last_eaten;
 	t_rules			*rules;
 	t_fork			*forks[2];
 	int				times_eaten;
@@ -82,12 +82,12 @@ void	destroy_forks(int forks_n, t_fork *forks);
 
 int		exit_correct(int forks_n, t_fork *forks, t_philo *philos);
 
-int64_t	get_time(void);
-
-int64_t	time_since_start(t_rules *rules);
-
-void	smart_sleep(int64_t ms);
+void	smart_sleep(uint64_t ms);
 
 void	print_action(t_philo *philo, char *msg);
+
+uint64_t	get_time(void);
+
+uint64_t	time_since_start(t_rules *rules);
 
 #endif

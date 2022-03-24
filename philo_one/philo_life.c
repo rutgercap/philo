@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 15:56:34 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 16:26:00 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 static void	philo_sleep(t_philo *philo)
 {
 	print_action(philo, SLEEPING);
-	usleep(philo->rules->sleep_time * 1000);
+	smart_sleep(philo->rules->sleep_time);
 }
-	// smart_sleep(philo->rules->sleep_time);
 
 static void	philo_eat(t_philo *philo)
 {
@@ -25,18 +24,15 @@ static void	philo_eat(t_philo *philo)
 	print_action(philo, FORK);
 	pthread_mutex_lock(philo->forks[RIGHT]);
 	print_action(philo, FORK);
-	pthread_mutex_lock(&philo->data_mutex);
 	print_action(philo, EATING);
+	pthread_mutex_lock(&philo->data_mutex);
 	philo->times_eaten += 1;
 	philo->last_eaten = time_since_start(philo->rules);
 	pthread_mutex_unlock(&philo->data_mutex);
-	usleep(philo->rules->sleep_time * 1000);
+	smart_sleep(philo->rules->eat_time);
 	pthread_mutex_unlock(philo->forks[LEFT]);
 	pthread_mutex_unlock(philo->forks[RIGHT]);
-	pthread_mutex_lock(&philo->data_mutex);
-	pthread_mutex_unlock(&philo->data_mutex);
 }
-	// smart_sleep(philo->rules->eat_time);
 
 static void	eat_sleep_think_repeat(t_philo *philo)
 {
