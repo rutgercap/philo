@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/11 10:32:16 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/23 13:37:55 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/24 15:56:20 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	*ft_calloc(size_t count, size_t size);
 
 int		ft_strcheck(char const *s, int (*f)(int));
 
-int     ft_isspace(int c);
+int		ft_isspace(int c);
 
 #endif
