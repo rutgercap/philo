@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:49:27 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 08:47:13 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ static int	get_fork(t_philo *philo, t_fork *fork)
 static int	philo_eat(t_philo *philo)
 {
 	if (get_fork(philo, philo->forks[LEFT]))
-	{
-		printf("test\n");
 		return (EXIT_FAILURE);
-	}
 	if (get_fork(philo, philo->forks[RIGHT]))
 	{
 		pthread_mutex_unlock(philo->forks[LEFT]);

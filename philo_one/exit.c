@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 08:41:54 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:57:47 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 08:58:16 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void	join_threads(t_philo *philos, int philos_n)
 	i = 0;
 	while (i < philos_n)
 	{
-		pthread_join(philos->tid, NULL); // does not work yet
-		perror("");
+		pthread_join(philos[i].tid, NULL);
 		i++;
 	}
 }
