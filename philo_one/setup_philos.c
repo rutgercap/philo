@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/25 15:08:19 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/25 08:57:19 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 09:09:42 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	start_philos(t_philo *philos, int philos_n)
 	{
 		if (pthread_create(&philos->tid, NULL, &philo_life, (void *)&philos[i]))
 			return (EXIT_FAILURE);
-		// pthread_detach(t_id);
 		usleep(100);
 		i++;
 	}

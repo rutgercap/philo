@@ -6,19 +6,14 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 16:46:28 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/15 12:32:07 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 09:05:38 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	ft_putnbr_fd(int64_t n, int fd)
+void	ft_putnbr_fd(uint64_t n, int fd)
 {
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);

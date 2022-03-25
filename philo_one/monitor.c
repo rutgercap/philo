@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:17:55 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:43:19 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 09:03:39 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static int	kill_philo(const int id, t_rules *rules)
 	ft_putnbr_fd(id, 1);
 	ft_putchar_fd(' ', 1);
 	ft_putendl_fd("died", 1);
+	pthread_mutex_unlock(&rules->write_mut);
 	return (EXIT_SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/11 10:32:16 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/15 12:43:32 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 09:05:45 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_putchar_fd(const char c, int fd);
 
 void	ft_putendl_fd(const char *s, int fd);
 
-void	ft_putnbr_fd(int64_t n, int fd);
+void	ft_putnbr_fd(uint64_t n, int fd);
 
 void	ft_putstr_fd(const char *s, int fd);
 
