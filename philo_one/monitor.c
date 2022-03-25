@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:17:55 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/25 09:03:39 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/25 09:22:43 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,12 @@ static int	check_philo(t_philo *philo, t_rules *rules)
 
 static int	kill_philo(const int id, t_rules *rules)
 {
-	int64_t	last_time;
+	uint64_t	time;
 
 	pthread_mutex_lock(&rules->write_mut);
 	rules->dead = true;
-	last_time = time_since_start(rules);
-	ft_putnbr_fd(last_time, 1);
-	ft_putstr_fd(": ", 1);
-	ft_putnbr_fd(id, 1);
-	ft_putchar_fd(' ', 1);
-	ft_putendl_fd("died", 1);
+	time = time_since_start(rules);
+	printf("%llu: %d died\n", time, id);
 	pthread_mutex_unlock(&rules->write_mut);
 	return (EXIT_SUCCESS);
 }
