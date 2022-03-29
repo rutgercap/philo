@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:17:55 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/25 09:22:43 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/29 10:26:18 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ static int	kill_philo(const int id, t_rules *rules)
 
 	pthread_mutex_lock(&rules->write_mut);
 	rules->dead = true;
+	pthread_mutex_unlock(&rules->write_mut);
 	time = time_since_start(rules);
 	printf("%llu: %d died\n", time, id);
-	pthread_mutex_unlock(&rules->write_mut);
+	usleep(10000);
 	return (EXIT_SUCCESS);
 }
 
@@ -59,7 +60,7 @@ int	monitor(t_philo *philos, int philos_n, t_rules *rules)
 			satisfied_philos++;
 		if (satisfied_philos == philos_n)
 			break ;
-		usleep(250);
+		usleep(100);
 		i++;
 	}
 	return (EXIT_SUCCESS);

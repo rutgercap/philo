@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/24 16:55:34 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/29 10:21:36 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,30 +63,30 @@ typedef struct s_philo
 	int				id;
 }	t_philo;
 
-int		arg_lexing(t_rules *rules, int *philos_n, int argc, char **argv);
+int			arg_lexing(t_rules *rules, int *philos_n, int argc, char **argv);
 
-int		setup_forks(t_fork **forks_ref, const int forks_n);
+int			setup_forks(t_fork **forks_ref, const int forks_n);
 
-int		setup_philos(t_philo **philos, const int philos_n, \
-		t_fork *forks, t_rules *rules);
+int			setup_philos(t_philo **philos, const int philos_n, \
+			t_fork *forks, t_rules *rules);
 
-void	*philo_life(void *arg);
+void		*philo_life(void *arg);
 
-int		monitor(t_philo *philos, int philos_n, t_rules *rules);
+int			monitor(t_philo *philos, int philos_n, t_rules *rules);
 
 // utils
 
-int		exit_error(char *msg, int philos_n, t_fork *forks, t_philo *philos);
+int			exit_error(char *msg, int philos_n, t_fork *forks, t_philo *philos);
 
-int		write_error(char *msg);
+int			write_error(char *msg);
 
-void	destroy_forks(int forks_n, t_fork *forks);
+void		destroy_forks(int forks_n, t_fork *forks);
 
-int		exit_correct(int forks_n, t_fork *forks, t_philo *philos);
+int			exit_correct(int forks_n, t_fork *forks, t_philo *philos, t_rules *rules);
 
-void	smart_sleep(uint64_t ms);
+void		smart_sleep(uint64_t ms);
 
-int		print_action(t_philo *philo, char *msg);
+int			print_action(t_philo *philo, char *msg);
 
 uint64_t	get_time(void);
 
