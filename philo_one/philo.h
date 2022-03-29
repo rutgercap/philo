@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/29 10:21:36 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/29 10:29:43 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ int			write_error(char *msg);
 
 void		destroy_forks(int forks_n, t_fork *forks);
 
-int			exit_correct(int forks_n, t_fork *forks, t_philo *philos, t_rules *rules);
+int			exit_correct(int forks_n, t_fork *forks, \
+			t_philo *philos, t_rules *rules);
 
 void		smart_sleep(uint64_t ms);
 
