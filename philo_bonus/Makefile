@@ -19,7 +19,7 @@ CC			=	gcc
 
 CFLAGS		=	-Wall -Wextra -Werror
 
-ARGS		=	2 150 100 100
+ARGS		=	200 150 100 100
 
 all:		$(NAME)
 $(NAME):	$(OBJS)

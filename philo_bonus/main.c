@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:11:28 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/15 14:05:06 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:36:17 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,18 @@ static void	start_forks(t_rules *rules, t_philo *philo)
 	}
 	if (pid == CHILD)
 		philo_life(philo);
-	else
+}
+
+static void	wait_for_forks(const t_rules rules)
+{
+	int	i;
+
+	i = 0;
+	while (i < rules.philos_n)
+	{
 		waitpid(-1, NULL, 0);
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -75,5 +85,6 @@ int	main(int argc, char **argv)
 	arg_lexing(rules, argc, argv);
 	setup_sems(rules);
 	start_forks(rules, philo);
+	wait_for_forks(*rules);
 	exit(EXIT_SUCCESS);
 }
