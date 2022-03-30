@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:40:51 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:42:13 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	get_fork(t_philo *philo, t_fork *fork)
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
-	no
 }
 
 static int	philo_eat(t_philo *philo)
@@ -41,13 +40,13 @@ static int	philo_eat(t_philo *philo)
 		pthread_mutex_unlock(philo->forks[LEFT]);
 		return (EXIT_FAILURE);
 	}
+	pthread_mutex_lock(&philo->data_mutex);
 	if (print_action(philo, EATING))
 	{
 		pthread_mutex_unlock(philo->forks[LEFT]);
 		pthread_mutex_unlock(philo->forks[RIGHT]);
 		return (EXIT_FAILURE);
 	}
-	pthread_mutex_lock(&philo->data_mutex);
 	philo->times_eaten += 1;
 	philo->last_eaten = time_since_start(philo->rules);
 	pthread_mutex_unlock(&philo->data_mutex);
@@ -77,8 +76,8 @@ void	*philo_life(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if (!philo->id % 2)
-		usleep(1000);
 	eat_sleep_think_repeat(philo);
+	pthread_mutex_destroy(&philo->data_mutex);
+	usleep(10000000);
 	return (EXIT_SUCCESS);
 }

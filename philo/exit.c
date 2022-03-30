@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 08:41:54 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/29 10:22:23 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:44:03 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	join_threads(t_philo *philos, int philos_n)
 
 int	exit_correct(int forks_n, t_fork *forks, t_philo *philos, t_rules *rules)
 {
-	pthread_mutex_destroy(&rules->write_mut);
 	join_threads(philos, forks_n);
+	pthread_mutex_destroy(&rules->write_mut);
 	destroy_forks(forks_n, forks);
 	free(philos);
 	free(forks);

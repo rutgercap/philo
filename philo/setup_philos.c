@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/25 15:08:19 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/29 09:53:41 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:47:32 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	make_structs(t_philo **philos, const int philos_n,
 
 int	start_philos(t_philo *philos, int philos_n)
 {
-	int			i;
+	int	i;
 
 	i = 0;
 	philos->rules->start_time = get_time();
@@ -52,7 +52,7 @@ int	start_philos(t_philo *philos, int philos_n)
 		if (pthread_create(&philos->tid, NULL, &philo_life, (void *)&philos[i]))
 			return (EXIT_FAILURE);
 		pthread_detach(philos->tid);
-		usleep(100);
+		usleep(200);
 		i++;
 	}
 	return (EXIT_SUCCESS);
