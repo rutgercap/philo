@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:42:13 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:51:06 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static int	philo_sleep(t_philo *philo)
 {
 	if (print_action(philo, SLEEPING))
-		return (EXIT_FAILURE);
+		return (STOP);
 	smart_sleep(philo->rules->sleep_time);
-	return (EXIT_SUCCESS);
+	return (CONTINUE);
 }
 
 static int	get_fork(t_philo *philo, t_fork *fork)
@@ -26,26 +26,26 @@ static int	get_fork(t_philo *philo, t_fork *fork)
 	if (print_action(philo, FORK))
 	{
 		pthread_mutex_unlock(fork);
-		return (EXIT_FAILURE);
+		return (STOP);
 	}
-	return (EXIT_SUCCESS);
+	return (CONTINUE);
 }
 
 static int	philo_eat(t_philo *philo)
 {
 	if (get_fork(philo, philo->forks[LEFT]))
-		return (EXIT_FAILURE);
+		return (STOP);
 	if (get_fork(philo, philo->forks[RIGHT]))
 	{
 		pthread_mutex_unlock(philo->forks[LEFT]);
-		return (EXIT_FAILURE);
+		return (STOP);
 	}
 	pthread_mutex_lock(&philo->data_mutex);
 	if (print_action(philo, EATING))
 	{
 		pthread_mutex_unlock(philo->forks[LEFT]);
 		pthread_mutex_unlock(philo->forks[RIGHT]);
-		return (EXIT_FAILURE);
+		return (STOP);
 	}
 	philo->times_eaten += 1;
 	philo->last_eaten = time_since_start(philo->rules);
@@ -53,7 +53,7 @@ static int	philo_eat(t_philo *philo)
 	smart_sleep(philo->rules->eat_time);
 	pthread_mutex_unlock(philo->forks[LEFT]);
 	pthread_mutex_unlock(philo->forks[RIGHT]);
-	return (EXIT_SUCCESS);
+	return (CONTINUE);
 }
 
 static void	eat_sleep_think_repeat(t_philo *philo)

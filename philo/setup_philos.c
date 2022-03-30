@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/25 15:08:19 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:47:32 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:56:16 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static int	make_structs(t_philo **philos, const int philos_n,
 		philos[0][i].id = i + 1;
 		config_struct(&philos[0][i], philos_n, forks, rules);
 		if (pthread_mutex_init(&philos[0][i].data_mutex, NULL))
-			return (EXIT_FAILURE);
+			return (-1);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 int	start_philos(t_philo *philos, int philos_n)
@@ -50,12 +50,12 @@ int	start_philos(t_philo *philos, int philos_n)
 	while (i < philos_n)
 	{
 		if (pthread_create(&philos->tid, NULL, &philo_life, (void *)&philos[i]))
-			return (EXIT_FAILURE);
+			return (-1);
 		pthread_detach(philos->tid);
 		usleep(200);
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 int	setup_philos(t_philo **philos, const int philos_n, \
@@ -63,10 +63,10 @@ int	setup_philos(t_philo **philos, const int philos_n, \
 {
 	*philos = ft_calloc(philos_n + 1, sizeof(t_philo));
 	if (!philos)
-		return (EXIT_FAILURE);
+		return (-1);
 	if (make_structs(philos, philos_n, forks, rules))
-		return (EXIT_FAILURE);
+		return (-1);
 	if (start_philos(*philos, philos_n))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (-1);
+	return (0);
 }
