@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:17:55 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:56:42 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 10:11:59 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	monitor(t_philo *philos, int philos_n, t_rules *rules)
 			satisfied_philos++;
 		if (satisfied_philos == philos_n)
 			break ;
-		usleep(250);
+		usleep(1000);
 		i++;
 	}
 	return (EXIT_SUCCESS);

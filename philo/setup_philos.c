@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/25 15:08:19 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:56:16 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 10:09:31 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	start_philos(t_philo *philos, int philos_n)
 	philos->rules->start_time = get_time();
 	while (i < philos_n)
 	{
-		if (pthread_create(&philos->tid, NULL, &philo_life, (void *)&philos[i]))
+		if (pthread_create(&philos[i].tid, NULL, &philo_life, (void *)&philos[i]))
 			return (-1);
 		pthread_detach(philos->tid);
 		usleep(200);

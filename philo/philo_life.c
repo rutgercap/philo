@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:51:06 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 10:16:22 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,5 @@ void	*philo_life(void *arg)
 	philo = (t_philo *)arg;
 	eat_sleep_think_repeat(philo);
 	pthread_mutex_destroy(&philo->data_mutex);
-	usleep(10000000);
 	return (EXIT_SUCCESS);
 }
