@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:50:32 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/04/01 11:09:37 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdio.h>
 # include <pthread.h>
 # include "utils/utils.h"
-
 
 # define STOP -1
 # define CONTINUE 0
