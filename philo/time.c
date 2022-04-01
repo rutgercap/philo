@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/02 12:04:59 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 10:11:22 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/04/01 11:10:35 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	smart_sleep(uint64_t ms)
 
 	start = get_time();
 	while ((get_time() - start) < ms)
-		usleep(500);
+		usleep(1000);
 }
