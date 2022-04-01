@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   init.c                                             :+:    :+:            */
+/*   lexing.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 12:03:35 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/30 09:57:00 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/04/01 14:32:55 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	check_argc(int argc)
 {
-	if (argc < 5 && argc > 6)
+	if (argc < 5 || argc > 6)
 		return (write_error("\
 Usage: \"./philo number_of_philosophers time_to_die \
 time_to_eat time_to_sleep [number_of_times_to_eat]\""));

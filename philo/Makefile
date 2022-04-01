@@ -2,7 +2,7 @@ NAME		=	philo
 
 SRCS		=	main.c \
 				exit.c \
-				init.c \
+				lexing.c \
 				forks.c \
 				setup_philos.c \
 				philo_life.c \
@@ -24,9 +24,9 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror 
 
-ARGS		=	10 310 300 300
+ARGS		=	 1 310 100 100
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
