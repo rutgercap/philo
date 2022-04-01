@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 12:03:35 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/15 13:37:48 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:57:00 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_argc(int argc)
 		return (write_error("\
 Usage: \"./philo number_of_philosophers time_to_die \
 time_to_eat time_to_sleep [number_of_times_to_eat]\""));
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 static int	check_arguments_numeric(int argc, char **argv)
@@ -29,7 +29,7 @@ static int	check_arguments_numeric(int argc, char **argv)
 			return (write_error("Arguments can only be numeric"));
 		argc--;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 static int	read_arguments(t_rules *rules, int *philos_n, char **argv)
@@ -47,18 +47,18 @@ static int	read_arguments(t_rules *rules, int *philos_n, char **argv)
 		if (rules->eat_n < 1)
 			return (write_error("One or more arguments are invalid"));
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }
 
 int	arg_lexing(t_rules *rules, int *philos_n, int argc, char **argv)
 {
 	if (check_argc(argc))
-		return (EXIT_FAILURE);
+		return (-1);
 	if (check_arguments_numeric(argc - 1, argv))
-		return (EXIT_FAILURE);
+		return (-1);
 	if (read_arguments(rules, philos_n, argv))
-		return (EXIT_FAILURE);
+		return (-1);
 	if (pthread_mutex_init(&rules->write_mut, NULL))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (-1);
+	return (0);
 }

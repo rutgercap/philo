@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/29 10:29:43 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:50:32 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # include <pthread.h>
 # include "utils/utils.h"
 
-# define NOT_SET -1
+
 # define STOP -1
+# define CONTINUE 0
 
 # define DEAD 1
 # define FULL 2

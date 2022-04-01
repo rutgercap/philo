@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:11:28 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/29 10:21:49 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:49:24 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	init_rules(t_rules *rules)
 {
-	rules->die_time = NOT_SET;
-	rules->eat_time = NOT_SET;
-	rules->sleep_time = NOT_SET;
-	rules->start_time = NOT_SET;
-	rules->eat_n = NOT_SET;
+	rules->die_time = 0;
+	rules->eat_time = 0;
+	rules->sleep_time = 0;
+	rules->start_time = 0;
+	rules->eat_n = 0;
 	rules->dead = false;
 }
 

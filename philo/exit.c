@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/04 08:41:54 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/03/29 10:22:23 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/03/30 09:55:21 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	destroy_forks(int forks_n, t_fork *forks)
 int	write_error(char *msg)
 {
 	printf("%s\n", msg);
-	return (EXIT_FAILURE);
+	return (-1);
 }
 
 int	exit_error(char *msg, int philos_n, t_fork *forks, t_philo *philos)
@@ -37,7 +37,7 @@ int	exit_error(char *msg, int philos_n, t_fork *forks, t_philo *philos)
 	if (philos)
 		free(philos);
 	write_error(msg);
-	return (EXIT_FAILURE);
+	return (-1);
 }
 
 void	join_threads(t_philo *philos, int philos_n)
@@ -54,10 +54,10 @@ void	join_threads(t_philo *philos, int philos_n)
 
 int	exit_correct(int forks_n, t_fork *forks, t_philo *philos, t_rules *rules)
 {
-	pthread_mutex_destroy(&rules->write_mut);
 	join_threads(philos, forks_n);
+	pthread_mutex_destroy(&rules->write_mut);
 	destroy_forks(forks_n, forks);
 	free(philos);
 	free(forks);
-	return (EXIT_SUCCESS);
+	return (0);
 }

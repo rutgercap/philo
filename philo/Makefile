@@ -24,9 +24,9 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g3
 
-ARGS		=	70 610 300 300
+ARGS		=	50 610 300 300 10
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
