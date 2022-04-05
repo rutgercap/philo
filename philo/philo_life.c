@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/01 09:47:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/04/01 14:40:03 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/04/05 14:14:43 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ static void	eat_sleep_think_repeat(t_philo *philo)
 	{
 		if (philo_eat(philo))
 			return ;
-		if (philo->times_eaten == philo->rules->eat_n)
+		if (philo->rules->max_eating && \
+			philo->times_eaten == philo->rules->eat_n)
 			return ;
 		if (philo_sleep(philo))
 			return ;

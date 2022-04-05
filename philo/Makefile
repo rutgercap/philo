@@ -24,9 +24,9 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror 
+CFLAGS		=	-Wall -Wextra -Werror -fsanitize=thread
 
-ARGS		=	 1 310 100 100
+ARGS		=	 5 800 200 200
 
 all:		$(NAME)
 $(NAME):	$(OBJS)

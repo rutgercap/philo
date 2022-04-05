@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 12:03:35 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/04/01 14:32:55 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/04/05 14:14:22 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	read_arguments(t_rules *rules, int *philos_n, char **argv)
 		return (write_error("One or more arguments are invalid"));
 	if (argv[5])
 	{
+		rules->max_eating = true;
 		rules->eat_n = ft_atoi(argv[5]);
 		if (rules->eat_n < 1)
 			return (write_error("One or more arguments are invalid"));

@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/28 09:05:02 by rcappend      #+#    #+#                 */
-/*   Updated: 2022/04/01 11:09:37 by rcappend      ########   odam.nl         */
+/*   Updated: 2022/04/05 14:13:56 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_rules
 	uint64_t		sleep_time;
 	uint64_t		start_time;
 	int				full_philos;
+	bool			max_eating;
 	int				eat_n;
 }	t_rules;
 
